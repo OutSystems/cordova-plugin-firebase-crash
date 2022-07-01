@@ -8,6 +8,9 @@ The changes documented here do not include those from the original repository.
 
 ## [Unreleased]
 
+## 2022-07-1
+- Avoid crash with try catch [RMET-1538](https://outsystemsrd.atlassian.net/browse/RMET-1691)
+
 ## [3.0.0-OS5]
 ## 2022-05-16
 - Updated dependency to analytics plugin [RMET-1538](https://outsystemsrd.atlassian.net/browse/RMET-1538)
