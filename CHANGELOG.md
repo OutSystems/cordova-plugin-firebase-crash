@@ -9,6 +9,36 @@ The changes documented here do not include those from the original repository.
 ## 2022-10-31
 - Replaced jcenter with more up to date mavenCentral
 
+## [Unreleased]
+
+## [3.0.0-OS7]
+
+## 2022-07-14
+- Remove dependency to Firebase Analytics  [RMET-1715](https://outsystemsrd.atlassian.net/browse/RMET-1717)
+
+## [3.0.0-OS6]
+
+## 2022-07-12
+- Firebase Analytics dependency tag updated  [RMET-1715](https://outsystemsrd.atlassian.net/browse/RMET-1715)
+
+## 2022-07-1
+- Avoid crash with try catch [RMET-1538](https://outsystemsrd.atlassian.net/browse/RMET-1691)
+
+## [3.0.0-OS5]
+## 2022-05-16
+- Updated dependency to analytics plugin [RMET-1538](https://outsystemsrd.atlassian.net/browse/RMET-1538)
+
+## [3.0.0-OS4]
+## 2022-05-10
+- Updated dependency to analytics plugin [RMET-1547](https://outsystemsrd.atlassian.net/browse/RMET-1547)
+
+## [3.0.0-OS3]
+## 2022-04-19
+- Hook to add google services dependency to build.gradle. [RMET-1497](https://outsystemsrd.atlassian.net/browse/RMET-1497)
+
+## 2021-11-05
+- New plugin release to include metadata tag setting compatibility with MABS versions
+
 ## [3.0.0-OS2]
 
 ## 2021-11-05

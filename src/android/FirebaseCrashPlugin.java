@@ -21,7 +21,12 @@ public class FirebaseCrashPlugin extends ReflectiveCordovaPlugin {
     protected void pluginInitialize() {
         Log.d(TAG, "Starting Firebase Crashlytics plugin");
 
-        firebaseCrashlytics = FirebaseCrashlytics.getInstance();
+        try{
+            firebaseCrashlytics = FirebaseCrashlytics.getInstance();
+        }
+        catch (Exception e){
+            Log.e("Firebase Crashlytics Plugin", e.getMessage());
+        }
     }
 
     @CordovaMethod(ExecutionThread.WORKER)
@@ -36,30 +41,34 @@ public class FirebaseCrashPlugin extends ReflectiveCordovaPlugin {
 
     @CordovaMethod(ExecutionThread.WORKER)
     private void log(String message, CallbackContext callbackContext) {
-        firebaseCrashlytics.log(message);
-
-        callbackContext.success();
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.log(message);
+            callbackContext.success();
+        }
     }
 
     @CordovaMethod(ExecutionThread.UI)
     private void logError(String message, CallbackContext callbackContext) {
-        firebaseCrashlytics.recordException(new Exception(message));
-
-        callbackContext.success();
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.recordException(new Exception(message));
+            callbackContext.success();
+        }
     }
 
     @CordovaMethod(ExecutionThread.UI)
     private void setUserId(String userId, CallbackContext callbackContext) {
-        firebaseCrashlytics.setUserId(userId);
-
-        callbackContext.success();
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.setUserId(userId);
+            callbackContext.success();
+        }
     }
 
     @CordovaMethod
     private void setEnabled(boolean enabled, CallbackContext callbackContext) {
-        firebaseCrashlytics.setCrashlyticsCollectionEnabled(enabled);
-
-        callbackContext.success();
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.setCrashlyticsCollectionEnabled(enabled);
+            callbackContext.success();
+        }
     }
 
 }

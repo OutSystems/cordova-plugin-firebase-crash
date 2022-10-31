@@ -16,16 +16,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <engine name="cordova-ios" version=">=5.1.1"/>
     </engines>
 
-    <dependency id="cordova-plugin-firebase-analytics" url="https://github.com/OutSystems/cordova-plugin-firebase-analytics.git#5.0.0-OS2"/>
+    <dependency id="cordova-outsystems-firebase-core" url="https://github.com/OutSystems/cordova-outsystems-firebase-core.git#1.0.1"/>
 
     <js-module src="www/FirebaseCrash.js" name="FirebaseCrash">
         <merges target="cordova.plugins.firebase.crashlytics" />
     </js-module>
 
     <preference name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" default="true" />
-
-    <hook type="before_plugin_install" src="hooks/configurations/installDependencies.js" />
-    <hook type="before_plugin_install" src="hooks/configurations/unzipAndCopyConfigurations.js" />
 
     <platform name="ios">
         <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="~> 8.6.0"/>
@@ -65,6 +62,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <platform name="android">
         <preference name="ANDROID_FIREBASE_CRASHLYTICS_VERSION" default="18.2.+"/>
 
+        <hook type="before_plugin_install" src="hooks/android/build_gradle_add_dependency.js" />
+        
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="FirebaseCrash">
                 <param name="android-package" value="by.chemerisuk.cordova.firebase.FirebaseCrashPlugin" />
@@ -81,6 +80,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         </config-file>
 
         <source-file src="src/android/FirebaseCrashPlugin.java" target-dir="src/by/chemerisuk/cordova/firebase/" />
+
+        <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
 
         <framework src="com.google.firebase:firebase-crashlytics:$ANDROID_FIREBASE_CRASHLYTICS_VERSION" />
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
