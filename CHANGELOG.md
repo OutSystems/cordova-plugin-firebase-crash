@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
-## [Unreleased]
+## [3.0.0-OS10]
+
+### 2024-02-23
+- Chore: Update cordova-support-android-plugin dependency to 2.0.4. (https://outsystemsrd.atlassian.net/browse/RMET-2899)
+
 ### 2024-01-30
 - Chore: Update Firebase/Crashlytics pod to version 8.15.0. (https://outsystemsrd.atlassian.net/browse/RMET-3143)
 

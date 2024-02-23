@@ -3,13 +3,10 @@ package by.chemerisuk.cordova.firebase;
 import android.util.Log;
 
 import by.chemerisuk.cordova.support.CordovaMethod;
+import by.chemerisuk.cordova.support.ExecutionThread;
 import by.chemerisuk.cordova.support.ReflectiveCordovaPlugin;
-
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
 import org.apache.cordova.CallbackContext;
-import org.json.JSONArray;
-import org.json.JSONException;
 
 
 public class FirebaseCrashPlugin extends ReflectiveCordovaPlugin {
