@@ -7,8 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 The changes documented here do not include those from the original repository.
 
 ## [Unreleased]
+
+### 2024-03-21
+- Chore: Update `FirebaseCrashlytics` iOS pod to version `10.23.0`. This includes the Privacy Manifest (https://outsystemsrd.atlassian.net/browse/RMET-3274).
+
 ### 2024-01-30
-- Chore: Update Firebase/Crashlytics pod to version 8.15.0. (https://outsystemsrd.atlassian.net/browse/RMET-3143)
+- Chore: Update `Firebase/Crashlytics` iOS pod to version `8.15.0` (https://outsystemsrd.atlassian.net/browse/RMET-3143).
 
 ## [3.0.0-OS9]
 
