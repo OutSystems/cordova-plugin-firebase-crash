@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-crash"
-      version="3.0.0-OS9">
+      version="3.0.0-OS10">
 
     <name>cordova-plugin-firebase-crash</name>
     <description>Cordova plugin for Firebase Crashlytics</description>
@@ -25,7 +25,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <preference name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" default="true" />
 
     <platform name="ios">
-        <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="~> 8.6.0"/>
+        <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="10.23.0"/>
 
         <hook type="after_plugin_install" src="hooks/ios/after_plugin_install.js" />
         <hook type="before_plugin_uninstall" src="hooks/ios/before_plugin_uninstall.js" />
@@ -52,8 +52,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <config>
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
-            <pods>
-                <pod name="Firebase/Crashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION" />
+            <pods use-frameworks="true">
+                <pod name="FirebaseCrashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION" />
             </pods>
         </podspec>
         
