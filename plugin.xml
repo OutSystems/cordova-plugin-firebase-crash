@@ -83,7 +83,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
         <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
 
-        <framework src="com.google.firebase:firebase-crashlytics:$ANDROID_FIREBASE_CRASHLYTICS_VERSION" />
+        <!--<framework src="com.google.firebase:firebase-crashlytics:$ANDROID_FIREBASE_CRASHLYTICS_VERSION" />-->
+        <framework src="com.google.firebase:firebase-bom:33.2.0" />
+        <framework src="com.google.firebase:firebase-crashlytics" />
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>
 
