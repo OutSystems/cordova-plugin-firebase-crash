@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
-## Unreleased
+## 3.0.0-OS11
 
 - Feat: Android | Update dependency to Firebase Crashlytics Android library (https://outsystemsrd.atlassian.net/browse/RMET-3608).
 
