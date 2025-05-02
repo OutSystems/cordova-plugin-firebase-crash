@@ -56,38 +56,32 @@ public class FirebaseCrashPlugin extends CordovaPlugin {
     }
 
     private void forceCrash() {
-        cordova.getThreadPool().execute(() -> {
+        new Thread(() -> {
             throw new RuntimeException("MyCrash");
-        });
+        }).start();
     }
 
     private void log(String message, CallbackContext callbackContext) {
-        cordova.getThreadPool().execute(() -> {
-            if(firebaseCrashlytics != null){
-                firebaseCrashlytics.log(message);
-                callbackContext.success();
-            }
-        });
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.log(message);
+            callbackContext.success();
+        }
     }
 
     private void logError(String message, CallbackContext callbackContext) {
-        cordova.getActivity().runOnUiThread(() -> {
-            if(firebaseCrashlytics != null){
-                Exception error = new Exception(message);
-                Log.d(TAG, "Logging non-fatal error to crashlytics", error);
-                firebaseCrashlytics.recordException(error);
-                callbackContext.success();
-            }
-        });
+        if(firebaseCrashlytics != null){
+            Exception error = new Exception(message);
+            Log.d(TAG, "Logging non-fatal error to crashlytics", error);
+            firebaseCrashlytics.recordException(error);
+            callbackContext.success();
+        }
     }
 
     private void setUserId(String userId, CallbackContext callbackContext) {
-        cordova.getActivity().runOnUiThread(() -> {
-            if(firebaseCrashlytics != null){
-                firebaseCrashlytics.setUserId(userId);
-                callbackContext.success();
-            }
-        });
+        if(firebaseCrashlytics != null){
+            firebaseCrashlytics.setUserId(userId);
+            callbackContext.success();
+        }
     }
 
     private void setEnabled(boolean enabled, CallbackContext callbackContext) {
