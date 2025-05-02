@@ -70,13 +70,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/*">
+        <edit-config target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
-  		</config-file>
+  		</edit-config>
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <edit-config target="AndroidManifest.xml" parent="application">
             <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
-        </config-file>
+        </edit-config>
 
         <source-file src="src/android/FirebaseCrashPlugin.java" target-dir="src/by/chemerisuk/cordova/firebase/" />
 
