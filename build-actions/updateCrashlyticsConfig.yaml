@@ -10,21 +10,6 @@ platforms:
         target: manifest/application
         inject: |
           <meta-data android:name="firebase_performance_collection_enabled" android:value="$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
-    gradle:
-      - file: app/build.gradle
-        target:
-        insert: |
-          apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
-          android {
-              buildTypes {
-                  debug {
-                      // do not upload debug versions to crashlytics
-                      firebaseCrashlytics {
-                          mappingFileUploadEnabled false
-                      }
-                  }
-              }
-          }
   ios:
     plist:
       - replace: false
