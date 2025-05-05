@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS12
+
+### 2025-05-05
+
+- Feat: Support for Capacitor, including build actions (https://outsystemsrd.atlassian.net/browse/RMET-3644).
+- Chore: Remove depenency on `cordova-outsystems-firebase-core` (https://outsystemsrd.atlassian.net/browse/RMET-3644).
+- Chore: Android | Removes dependency to `cordova-support-android-plugin` (https://outsystemsrd.atlassian.net/browse/RMET-36434.
+
 ## 3.0.0-OS11
 
 - Feat: Android | Update dependency to Firebase Crashlytics Android library (https://outsystemsrd.atlassian.net/browse/RMET-3608).
