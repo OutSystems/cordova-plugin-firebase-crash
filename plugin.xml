@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-crash"
-      version="3.0.0-OS11">
+      version="3.0.0-OS12">
 
     <name>cordova-plugin-firebase-crash</name>
     <description>Cordova plugin for Firebase Crashlytics</description>
@@ -15,8 +15,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <engine name="cordova-android" version=">=8.1.0"/>
         <engine name="cordova-ios" version=">=5.1.1"/>
     </engines>
-
-    <dependency id="cordova-outsystems-firebase-core" url="https://github.com/OutSystems/cordova-outsystems-firebase-core.git#2.0.0"/>
 
     <js-module src="www/FirebaseCrash.js" name="FirebaseCrash">
         <merges target="cordova.plugins.firebase.crashlytics" />
@@ -70,17 +68,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             </feature>
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/*">
+        <edit-config target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
-  		</config-file>
+  		</edit-config>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
         </config-file>
 
         <source-file src="src/android/FirebaseCrashPlugin.java" target-dir="src/by/chemerisuk/cordova/firebase/" />
-
-        <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
 
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>

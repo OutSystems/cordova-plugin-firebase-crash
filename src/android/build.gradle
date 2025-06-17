@@ -11,14 +11,23 @@ buildscript {
     }
 }
 
-apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
+def isApplication = plugins.hasPlugin("com.android.application")
+if (isApplication) {
+    // If this cordova plugin would be installed in a capacitor build, adding this code below without the if would result in an error.
+    //  Both Cordova and Capacitor apply this gradle file from the app's build.gradle
+    //  But because in Capacitor installs plugins as library modules, adding this block without the if would result in a build error:
+    //   "Applying the Firebase Crashlytics plugin to a library project is unsupported. (...)"
+    apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
 
-android {
-    buildTypes {
-        debug {
-            // do not upload debug versions to crashlytics
-            firebaseCrashlytics {
-                mappingFileUploadEnabled false
+    logger.error('Info: Additional insights.')
+
+    android {
+        buildTypes {
+            debug {
+                // do not upload debug versions to crashlytics
+                firebaseCrashlytics {
+                    mappingFileUploadEnabled false
+                }
             }
         }
     }
