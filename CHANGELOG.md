@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS13
+
+### 2025-07-08
+
+- Fix: Enable Crashlytics for Andorid instead of Performance Collection (https://outsystemsrd.atlassian.net/browse/RMET-4310).
+
 ## 3.0.0-OS12
 
 ### 2025-05-05
