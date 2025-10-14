@@ -6,7 +6,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
-## [Unreleased]
+## 3.0.0-OS13
+
+### 2025-07-08
+
+- Fix: Enable Crashlytics for Andorid instead of Performance Collection (https://outsystemsrd.atlassian.net/browse/RMET-4310).
+
+## 3.0.0-OS12
+
+### 2025-05-05
+
+- Feat: Support for Capacitor, including build actions (https://outsystemsrd.atlassian.net/browse/RMET-3644).
+- Chore: Remove depenency on `cordova-outsystems-firebase-core` (https://outsystemsrd.atlassian.net/browse/RMET-3644).
+- Chore: Android | Removes dependency to `cordova-support-android-plugin` (https://outsystemsrd.atlassian.net/browse/RMET-36434.
+
+
+## 3.0.0-OS11
+
+- Feat: Android | Update dependency to Firebase Crashlytics Android library (https://outsystemsrd.atlassian.net/browse/RMET-3608).
+
+## 3.0.0-OS10
+
+- Chore: Update `FirebaseCrashlytics` iOS pod to version `10.23.0`. This includes the Privacy Manifest (https://outsystemsrd.atlassian.net/browse/RMET-3274).
+
+## [3.0.0-OS9]
+
+## 2023-08-11
+- Feat: update firebase core version (https://outsystemsrd.atlassian.net/browse/RMET-2451).
 
 ## [3.0.0-OS8]
 
