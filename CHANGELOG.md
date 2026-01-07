@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS14
+
+### 2026-01-07
+
+- Fix: Fix boolean value on build action (https://outsystemsrd.atlassian.net/browse/RMET-4670).
+
 ## 3.0.0-OS13
 
 ### 2025-07-08
