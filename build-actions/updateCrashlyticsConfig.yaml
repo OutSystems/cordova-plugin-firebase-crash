@@ -14,7 +14,7 @@ platforms:
     plist:
       - replace: false
         entries:
-          - FirebaseCrashlyticsCollectionEnabled: "$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED"
+          - FirebaseCrashlyticsCollectionEnabled: $FIREBASE_CRASHLYTICS_COLLECTION_ENABLED
     buildPhases:
       - comment: Crashlytics
         shellPath: "/bin/sh"
