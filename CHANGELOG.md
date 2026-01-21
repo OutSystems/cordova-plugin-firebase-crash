@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS15
+
+### 2026-01-20
+
+- Chore: remove unnecessary Firebase preferences on Android and iOS (https://outsystemsrd.atlassian.net/browse/RMET-4915).
+
 ## 3.0.0-OS14
 
 ### 2026-01-07
