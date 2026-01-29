@@ -20,6 +20,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <merges target="cordova.plugins.firebase.crashlytics" />
     </js-module>
 
+    <preference name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" default="true" />
+
     <platform name="ios">
         <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="10.23.0"/>
 
@@ -37,6 +39,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             use a bit hacky method to set boolean value as a string:
             https://developer.apple.com/documentation/foundation/nsstring/1409420-boolvalue?preferredLanguage=occ
         -->
+
+        <config-file target="*-Info.plist" parent="FirebaseCrashlyticsCollectionEnabled">
+            <string>$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED</string>
+        </config-file>
 
         <header-file src="src/ios/FirebaseCrashPlugin.h" />
         <source-file src="src/ios/FirebaseCrashPlugin.m" />
