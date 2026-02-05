@@ -25,6 +25,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
         <hook type="after_plugin_install" src="hooks/ios/after_plugin_install.js" />
         <hook type="before_plugin_uninstall" src="hooks/ios/before_plugin_uninstall.js" />
+        <hook type="after_prepare" src="hooks/ios/iOSCopyPreferences.js" />
 
         <config-file parent="/*" target="config.xml">
             <feature name="FirebaseCrash">
@@ -55,6 +56,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <platform name="android">
 
         <hook type="before_plugin_install" src="hooks/android/build_gradle_add_dependency.js" />
+        <hook type="after_prepare" src="hooks/android/androidCopyPreferences.js" />
         
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="FirebaseCrash">
