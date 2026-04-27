@@ -35,9 +35,16 @@ async function main() {
     const buildPhase = xcodeProject.pbxItemByComment(BUILD_PHASE_COMMENT, 'PBXShellScriptBuildPhase');
 
     if (!buildPhase) {
+        let shellScriptLocation = '"${PODS_ROOT}/FirebaseCrashlytics/run"';
+        const capSPMPath = path.join(iosDir, 'App', 'CapApp-SPM');
+        if (fs.existsSync(capSPMPath)) {
+            // SPM apps have the firebase iOS SDK in a different location
+            shellScriptLocation = '"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run"';
+        }
+
         const result = xcodeProject.addBuildPhase([], 'PBXShellScriptBuildPhase', BUILD_PHASE_COMMENT, null, {
             shellPath: '/bin/sh',
-            shellScript: '"${PODS_ROOT}/FirebaseCrashlytics/run"',
+            shellScript: shellScriptLocation,
             inputPaths: ['"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"'],
         });
 
