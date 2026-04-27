@@ -5,12 +5,12 @@ This folder contains a .yaml file for configuring build actions to use in a plug
 
 ## Contents
 
-The file [updateCrashlyticsConfig.yaml](./updateCrashlyticsConfig.yaml) contains three build actions:
+The file [updateCrashlyticsConfig.yaml](./updateCrashlyticsConfig.yaml) contains two build actions:
 
 1. Android specific. Adds the `firebase_performance_collection_enabled` meta-data entry - according to the `FIREBASE_CRASHLYTICS_COLLECTION_ENABLED` parameter - to the app's `AndroidManifest.xml`. With it you can enable/disable crashlytics in the Android app.
 2. iOS specific. Set `FirebaseCrashlyticsCollectionEnabled` - according to the `FIREBASE_CRASHLYTICS_COLLECTION_ENABLED` parameter - in the app's Info.plist file. With it you can enable/disable crashlytics in the iOS app.
-3. iOS specific. Adds a build phase for XCode to upload files to Firebase, to help with getting more readable crash reports.
 
+Note: Some specific changes cannot be done via Build Actions. Refer to [capacitor hooks folder](../hooks/capacitor/) for more information.
 
 ## Outsystems' Usage
 
