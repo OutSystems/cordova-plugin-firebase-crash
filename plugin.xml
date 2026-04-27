@@ -20,7 +20,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <merges target="cordova.plugins.firebase.crashlytics" />
     </js-module>
 
-    <platform name="ios">
+    <platform name="ios" package="swift">
         <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="10.29.0"/>
 
         <hook type="after_plugin_install" src="hooks/ios/after_plugin_install.js" />
@@ -47,7 +47,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="FirebaseCrashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION" />
+                <pod name="FirebaseCrashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION"  nospm="true" />
             </pods>
         </podspec>
         
