@@ -14,9 +14,17 @@ module.exports = function(context) {
     const buildPhase = xcodeProject.pbxItemByComment(comment, "PBXShellScriptBuildPhase");
 
     if (!buildPhase) {
+        const cordovaIosVersion = context.requireCordovaModule("cordova-ios/package").version;
+        const cordovaIosMajor = parseInt(cordovaIosVersion.split(".")[0], 10);
+        const supportsSPM = cordovaIosMajor >= 8;
+
+        const shellScript = supportsSPM
+            ? "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\""
+            : "\"${PODS_ROOT}/FirebaseCrashlytics/run\"";
+
         const result = xcodeProject.addBuildPhase([], "PBXShellScriptBuildPhase", comment, null, {
             shellPath: "/bin/sh",
-            shellScript: "\"${PODS_ROOT}/FirebaseCrashlytics/run\"",
+            shellScript: shellScript,
             inputPaths: ["\"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\""]
         });
 
