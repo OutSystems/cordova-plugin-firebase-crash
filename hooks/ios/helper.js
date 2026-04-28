@@ -5,12 +5,12 @@ module.exports = {
     BUILD_PHASE_COMMENT: "Crashlytics",
 
     isCordovaIos8OrHigher: function() {
-        const iosPackageJsonPath = path.join("platforms", "ios", "package.json");
-        if (!fs.existsSync(iosPackageJsonPath)) {
+        const apiPath = path.resolve("platforms", "ios", "cordova", "Api.js");
+        if (!fs.existsSync(apiPath)) {
             return false;
         }
-        const iosPackage = JSON.parse(fs.readFileSync(iosPackageJsonPath, "utf8"));
-        return parseInt(iosPackage.version.split(".")[0], 10) >= 8;
+        const version = require(apiPath).version();
+        return parseInt(version.split(".")[0], 10) >= 8;
     },
 
     getXcodeProjectPath: function(context) {
