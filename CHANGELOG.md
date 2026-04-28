@@ -10,7 +10,7 @@ The changes documented here do not include those from the original repository.
 
 ### 2026-04-28
 
-- Feat: iOS | Support Swift Package Manager (https://outsystemsrd.atlassian.net/browse/RMET-5139)
+- Feat: iOS | Support Swift Package Manager and Cordova iOS 8 (https://outsystemsrd.atlassian.net/browse/RMET-5139)
 
 ## 3.0.0-OS16
 
