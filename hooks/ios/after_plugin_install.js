@@ -14,9 +14,7 @@ module.exports = function(context) {
     const buildPhase = xcodeProject.pbxItemByComment(comment, "PBXShellScriptBuildPhase");
 
     if (!buildPhase) {
-        const cordovaIosVersion = context.requireCordovaModule("cordova-ios/package").version;
-        const cordovaIosMajor = parseInt(cordovaIosVersion.split(".")[0], 10);
-        const supportsSPM = cordovaIosMajor >= 8;
+        const supportsSPM = helper.isCordovaIos8OrHigher();
 
         const shellScript = supportsSPM
             ? "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\""
