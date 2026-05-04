@@ -15,10 +15,3 @@ platforms:
       - replace: false
         entries:
           - FirebaseCrashlyticsCollectionEnabled: $FIREBASE_CRASHLYTICS_COLLECTION_ENABLED
-    buildPhases:
-      - comment: Crashlytics
-        shellPath: "/bin/sh"
-        shellScript: "\"${PODS_ROOT}/FirebaseCrashlytics/run\""
-        inputPaths: ["\"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\""]
-    
-  

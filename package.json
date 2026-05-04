@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-firebase-crash",
-  "version": "3.0.0-OS16",
+  "version": "3.0.0-OS17",
   "description": "Cordova plugin for Firebase Crashlytics",
   "cordova": {
     "id": "cordova-plugin-firebase-crash",
@@ -32,7 +32,8 @@
   ],
   "scripts": {
     "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "capacitor:sync:after": "node hooks/capacitor/after_cap_sync.js"
   },
   "dependencies": {
   }

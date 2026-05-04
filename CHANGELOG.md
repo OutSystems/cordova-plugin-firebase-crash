@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS17
+
+### 2026-04-28
+
+- Feat: iOS | Support Swift Package Manager and Cordova iOS 8 (https://outsystemsrd.atlassian.net/browse/RMET-5139)
+
 ## 3.0.0-OS16
 
 ### 2026-02-05

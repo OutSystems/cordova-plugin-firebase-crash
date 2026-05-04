@@ -1,7 +1,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
            id="cordova-plugin-firebase-crash"
-      version="3.0.0-OS16">
+      version="3.0.0-OS17">
 
     <name>cordova-plugin-firebase-crash</name>
     <description>Cordova plugin for Firebase Crashlytics</description>
@@ -20,8 +20,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <merges target="cordova.plugins.firebase.crashlytics" />
     </js-module>
 
-    <platform name="ios">
-        <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="10.23.0"/>
+    <platform name="ios" package="swift">
+        <preference name="IOS_FIREBASE_CRASHLYTICS_VERSION" default="10.29.0"/>
 
         <hook type="after_plugin_install" src="hooks/ios/after_plugin_install.js" />
         <hook type="before_plugin_uninstall" src="hooks/ios/before_plugin_uninstall.js" />
@@ -47,7 +47,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="FirebaseCrashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION" />
+                <pod name="FirebaseCrashlytics" spec="$IOS_FIREBASE_CRASHLYTICS_VERSION"  nospm="true" />
             </pods>
         </podspec>
         
