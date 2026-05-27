@@ -7,7 +7,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1'
-        classpath 'com.google.gms:google-services:4.3.14'
     }
 }
 
@@ -38,15 +37,3 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics")
 }
 
-// use postBuildExtras to make sure the plugin is applied after
-// cdvPluginPostBuildExtras. Therefore if googleServices is added
-// to cdvPluginPostBuildExtras somewhere else, the plugin execution
-// will be skipped and project build will be successfull
-ext.postBuildExtras = {
-    if (project.extensions.findByName('googleServices') == null) {
-        // apply plugin: 'com.google.gms.google-services'
-        // class must be used instead of id(string) to be able to apply plugin from non-root gradle file
-        apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
-        googleServices.disableVersionCheck = true
-    }
-}
