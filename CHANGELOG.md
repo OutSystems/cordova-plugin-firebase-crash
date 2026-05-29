@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 The changes documented here do not include those from the original repository.
 
+## 3.0.0-OS18
+
+### 2026-05-27
+
+- Fix: Android | Avoid overwriting other plugins' `ext.postBuildExtras` Gradle configuration (https://outsystemsrd.atlassian.net/browse/RMET-5211)
+
 ## 3.0.0-OS17
 
 ### 2026-04-28
