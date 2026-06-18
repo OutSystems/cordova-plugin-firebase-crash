@@ -31,9 +31,13 @@
     "cordova-ios"
   ],
   "scripts": {
-    "version": "replace -s 'version=\"(.+)(?=\">)' 'version=\"'$npm_package_version plugin.xml && git add plugin.xml",
-    "postversion": "git push && git push --tags",
-    "capacitor:sync:after": "node hooks/capacitor/after_cap_sync.js"
+    "capacitor:sync:after": "node hooks/capacitor/after_cap_sync.js",
+    "release": "node scripts/release.js"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^21.0.2",
+    "simple-git": "^3.25.0",
+    "xml2js": "^0.6.2"
   },
   "dependencies": {
   }
