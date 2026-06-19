@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-firebase-crash",
-  "version": "3.0.0-OS18",
+  "version": "3.0.0-OS19",
   "description": "Cordova plugin for Firebase Crashlytics",
   "cordova": {
     "id": "cordova-plugin-firebase-crash",
@@ -39,6 +39,5 @@
     "simple-git": "^3.25.0",
     "xml2js": "^0.6.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

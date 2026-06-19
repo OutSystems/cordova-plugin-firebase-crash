@@ -1,3 +1,11 @@
+## [3.0.0-OS19]
+
+### 2026-06-19
+
+- ci: Trigger release on push to outsystems (#42)
+- ci: Release and Changelog Automation (#41)
+
+
 # Changelog (old)
 =========
 
