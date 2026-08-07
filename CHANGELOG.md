@@ -1,3 +1,10 @@
+## [3.0.0-OS20]
+
+### 2026-08-07
+
+- ci: use node 24 and update action versions (#43)
+
+
 ## [3.0.0-OS19]
 
 ### 2026-06-19
