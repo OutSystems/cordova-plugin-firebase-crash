@@ -18,19 +18,6 @@ if (isApplication) {
     //  But because in Capacitor installs plugins as library modules, adding this block without the if would result in a build error:
     //   "Applying the Firebase Crashlytics plugin to a library project is unsupported. (...)"
     apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
-
-    logger.error('Info: Additional insights.')
-
-    android {
-        buildTypes {
-            debug {
-                // do not upload debug versions to crashlytics
-                firebaseCrashlytics {
-                    mappingFileUploadEnabled false
-                }
-            }
-        }
-    }
 }
 
 dependencies {
