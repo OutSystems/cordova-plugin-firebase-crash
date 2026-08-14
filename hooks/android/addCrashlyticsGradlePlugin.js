@@ -1,19 +1,3 @@
-/**
- * DRAFT — sketch only, not wired into plugin.xml yet.
- *
- * Cordova (O11 / MABS12 Cordova) hook: injects the Crashlytics Gradle plugin
- * classpath + guarded `apply plugin:` directly into the real project's
- * platforms/android/build.gradle and platforms/android/app/build.gradle,
- * instead of relying on this plugin's own src/android/build.gradle
- * (applied via `apply from:`, which creates an isolated script-plugin
- * classloader — the root cause of the AGP 9 classloader-mismatch failures
- * documented in cordova-plugin-firebase-crash-agp9-investigation.md).
- *
- * Doing it here means the plugin classes load from the SAME classloader as
- * the project's own AGP, sidestepping the ApplicationAndroidComponentsExtension
- * type mismatch entirely.
- */
-
 const path = require('path');
 const fs = require('fs');
 

@@ -3,41 +3,6 @@ variables:
     default: true
     type: boolean
 
-# DRAFT — the `gradle` entries below are a sketch, not yet validated against a
-# real ODC/MABS build. They inject the Crashlytics Gradle plugin classpath +
-# `apply plugin:` directly into the real app's android/build.gradle and
-# android/app/build.gradle, instead of relying on this plugin's own
-# src/android/build.gradle (applied via `apply from:` inside
-# android/capacitor-cordova-android-plugins/build.gradle, which creates an
-# isolated script-plugin classloader — the root cause of the AGP 9
-# classloader-mismatch failures documented in
-# cordova-plugin-firebase-crash-agp9-investigation.md).
-#
-# Doing it here means the plugin classes load from the SAME classloader as the
-# app's own AGP, sidestepping the ApplicationAndroidComponentsExtension type
-# mismatch entirely — the Capacitor/ODC counterpart to the Cordova
-# `after_prepare` hook (hooks/android/addCrashlyticsGradlePlugin.js), since
-# ODC Capacitor builds don't run arbitrary Cordova/Node hooks the way a raw
-# `cordova build` does.
-#
-# Verified against capacitor-outsystems-builder's actual `gradle` action
-# implementation (@capacitor/trampoline's GradleFile, real Groovy-AST based,
-# not regex):
-# - `target: { buildscript: { dependencies: null } }` is required (not just
-#   `{ buildscript: null }`) — a bare `buildscript: null` target inserts the
-#   `classpath` line as a sibling of the `dependencies {}` block, not inside
-#   it, which doesn't compile (`classpath` is only a valid statement inside
-#   `dependencies {}`).
-# - `target: null` on app/build.gradle resolves to "immediately after the
-#   file's first top-level AST statement" — NOT top-of-file or end-of-file.
-#   In this project's own Android template (and confirmed against a real
-#   generated app), `apply plugin: 'com.android.application'` is that first
-#   statement, so this lands in the right place *today*. There is no code
-#   path anchoring this insert to `com.android.application` specifically —
-#   if that template's line order ever changes, this would silently apply
-#   Crashlytics before the application plugin, with no build error, just
-#   wrong behavior. Flagging this as a known fragility, not a guarantee.
-
 platforms:
   android:
     manifest:
