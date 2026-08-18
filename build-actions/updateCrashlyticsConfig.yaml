@@ -10,6 +10,17 @@ platforms:
         target: manifest/application
         inject: |
           <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="$FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" />
+    gradle:
+      - file: build.gradle
+        target:
+          buildscript:
+            dependencies: null
+        insert:
+          - classpath: "'com.google.firebase:firebase-crashlytics-gradle:3.0.7'"
+      - file: app/build.gradle
+        target: null
+        insert: |
+          apply plugin: com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
   ios:
     plist:
       - replace: false
