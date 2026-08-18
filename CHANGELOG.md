@@ -1,3 +1,10 @@
+## [3.0.0-OS21]
+
+### 2026-08-18
+
+- fix(android): Capacitor and MABS forward-compatibility (#44)
+
+
 ## [3.0.0-OS20]
 
 ### 2026-08-07
