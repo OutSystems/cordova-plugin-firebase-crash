@@ -30,9 +30,9 @@ var constants = {
   folderNamePrefix: "firebase."
 };
 
-function handleError(errorMessage, defer) {
+function handleError(errorMessage, reject) {
   console.log(errorMessage);
-  defer.reject();
+  reject();
 }
 
 function checkIfFolderExists(path) {
@@ -141,14 +141,16 @@ function getAndroidTargetSdk() {
   throw new Error('Could not find android target in ' + projectPropertiesPath);
 }
 
-function copyFromSourceToDestPath(defer, sourcePath, destPath) {
-  fs.createReadStream(sourcePath).pipe(fs.createWriteStream(destPath))
-  .on("close", function (err) {
-    defer.resolve();
-  })
-  .on("error", function (err) {
-    console.log(err);
-    defer.reject();
+function copyFromSourceToDestPath(sourcePath, destPath) {
+  return new Promise(function (resolve, reject) {
+    fs.createReadStream(sourcePath).pipe(fs.createWriteStream(destPath))
+    .on("close", function () {
+      resolve();
+    })
+    .on("error", function (err) {
+      console.log(err);
+      reject(err);
+    });
   });
 }
 
