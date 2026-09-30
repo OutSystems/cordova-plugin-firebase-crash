@@ -16,7 +16,7 @@ module.exports = function(context) {
     var platform = context.opts.plugin.platform;
     var platformConfig = utils.getPlatformConfigs(platform);
     if (!platformConfig) {
-      utils.handleError("Invalid platform", reject);
+      return utils.handleError("Invalid platform", reject);
     }
 
     var wwwPath = utils.getResourcesFolderPath(context, platform, platformConfig);
@@ -24,7 +24,7 @@ module.exports = function(context) {
 
     var googleServicesZipFile = utils.getZipFile(sourceFolderPath, constants.googleServices);
     if (!googleServicesZipFile) {
-      utils.handleError("No zip file found containing google services configuration file", reject);
+      return utils.handleError("No zip file found containing google services configuration file", reject);
     }
 
     var zip = new AdmZip(googleServicesZipFile);
@@ -34,31 +34,34 @@ module.exports = function(context) {
 
     var files = utils.getFilesFromPath(targetPath);
     if (!files) {
-      utils.handleError("No directory found", reject);
+      return utils.handleError("No directory found", reject);
     }
 
     var fileName = files.find(function (name) {
       return name.endsWith(platformConfig.firebaseFileExtension);
     });
     if (!fileName) {
-      utils.handleError("No file found", reject);
+      return utils.handleError("No file found", reject);
     }
 
     var sourceFilePath = path.join(targetPath, fileName);
-    var destFilePath = path.join(context.opts.plugin.dir, fileName);
+    var copyOperations = [];
 
-    if(!utils.checkIfFolderExists(destFilePath)){
-      utils.copyFromSourceToDestPath(sourceFilePath, destFilePath).then(resolve, reject);
+    var pluginDestFilePath = path.join(context.opts.plugin.dir, fileName);
+    if(!utils.checkIfFolderExists(pluginDestFilePath)){
+      copyOperations.push(utils.copyFromSourceToDestPath(sourceFilePath, pluginDestFilePath));
     }
 
     if (cordovaAbove7) {
       var destPath = path.join(context.opts.projectRoot, "platforms", platform, "app");
       if (utils.checkIfFolderExists(destPath)) {
-        var destFilePath = path.join(destPath, fileName);
-        if(!utils.checkIfFolderExists(destFilePath)){
-          utils.copyFromSourceToDestPath(sourceFilePath, destFilePath).then(resolve, reject);
+        var platformDestFilePath = path.join(destPath, fileName);
+        if(!utils.checkIfFolderExists(platformDestFilePath)){
+          copyOperations.push(utils.copyFromSourceToDestPath(sourceFilePath, platformDestFilePath));
         }
       }
     }
+
+    Promise.all(copyOperations).then(resolve, reject);
   });
 }
