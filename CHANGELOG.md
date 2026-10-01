@@ -1,3 +1,10 @@
+## [3.0.0-OS22]
+
+### 2026-10-01
+
+- fix(android): Cordova Android 15 and MABS 13 compatibility (#45)
+
+
 ## [3.0.0-OS21]
 
 ### 2026-08-18
